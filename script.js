@@ -1,13 +1,13 @@
 /* =========================================================
    CUTFLOW — Script
-   Two small jobs:
-   1. Add "scrolled" style to the nav bar after scrolling down
-   2. Reveal ".reveal" elements with a fade/slide as they enter view
+   Dos pequeñas tareas:
+   1. Añadir la clase "scrolled" a la barra de navegación al desplazarse hacia abajo
+   2. Revelar los elementos ".reveal" con una transición de desvanecimiento/desplazamiento al entrar en vista
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---------- 1. Nav background on scroll ---------- */
+  /* ---------- 1. Fondo del nav al hacer scroll ---------- */
   var nav = document.getElementById('nav');
 
   function updateNav() {
@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
   updateNav();
   window.addEventListener('scroll', updateNav, { passive: true });
 
-  /* ---------- 2. Scroll reveal ---------- */
+  /* ---------- 2. Revelado al hacer scroll ---------- */
   var revealEls = document.querySelectorAll('.reveal');
 
-  // If the browser doesn't support IntersectionObserver, just show everything.
+  // Si el navegador no soporta IntersectionObserver, sólo mostrar todo.
   if (!('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
     return;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // animate once, then leave it alone
+        observer.unobserve(entry.target); // animar una vez y luego no volver a observar
       }
     });
   }, {
